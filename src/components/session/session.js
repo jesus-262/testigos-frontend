@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { enviroments } from '../../env';
+
 export default class session extends Component {
 
 

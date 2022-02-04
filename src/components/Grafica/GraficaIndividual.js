@@ -4,6 +4,7 @@ import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'
 //import ReactDOM from 'react-dom';
 //import {Link}from 'react-router-dom';
+import { enviroments } from '../../env';
 
 export default class GraficaIndividual extends Component {
  

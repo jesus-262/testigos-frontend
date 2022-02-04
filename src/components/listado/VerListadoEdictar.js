@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 
 //import ReactDOM from 'react-dom';
 //import {Link}from 'react-router-dom';
+import { enviroments } from '../../env';
 
 export default class VerListadoEdictar extends Component {
  

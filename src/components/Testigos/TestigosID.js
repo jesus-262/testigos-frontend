@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.css";
 
+import { enviroments } from '../../env';
 
 export default class TestigosID extends Component {
   state = {

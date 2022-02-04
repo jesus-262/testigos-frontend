@@ -4,6 +4,7 @@ import axios from 'axios';
 
 //import ReactDOM from 'react-dom';
 //import {Link}from 'react-router-dom';
+import { enviroments } from '../../env';
 
 export default class RolesEdictar extends Component {
  
