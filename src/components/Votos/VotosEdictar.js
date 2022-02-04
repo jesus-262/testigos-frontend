@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
+import { enviroments } from '../../env';
 import { Link } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from "react-bootstrap";
@@ -127,7 +128,7 @@ export default class VotosEdictar extends Component {
       mesa: this.state.mesa,
       estado: this.state.estado,
     };
-    const res = await axios.post("http://localhost:4000/votos", params);
+    const res = await axios.post(enviroments.backendUrl + "/votos", params);
 
     this.setState({ reclamos: res.data.reclamos });
     this.setState({ navegacion: res.data.navegacion });
@@ -146,7 +147,7 @@ export default class VotosEdictar extends Component {
       mesa: this.state.mesa,
       estado: this.state.estado,
     };
-    const res = await axios.post("http://localhost:4000/votos", params);
+    const res = await axios.post(enviroments.backendUrl + "/votos", params);
 
     this.setState({ reclamos: res.data.reclamos });
     this.setState({ navegacion: res.data.navegacion });
@@ -165,7 +166,7 @@ export default class VotosEdictar extends Component {
       puesto: this.state.puesto,
       estado: this.state.estado,
     };
-    const res = await axios.post("http://localhost:4000/votos", params);
+    const res = await axios.post(enviroments.backendUrl + "/votos", params);
 
     this.setState({ reclamos: res.data.reclamos });
     this.setState({ navegacion: res.data.navegacion });
@@ -184,7 +185,7 @@ export default class VotosEdictar extends Component {
       puesto: this.state.puesto,
       mesa: this.state.mesa,
     };
-    const res = await axios.post("http://localhost:4000/votos", params);
+    const res = await axios.post(enviroments.backendUrl + "/votos", params);
 
     this.setState({ reclamos: res.data.reclamos });
     this.setState({ navegacion: res.data.navegacion });
@@ -203,7 +204,7 @@ export default class VotosEdictar extends Component {
       puesto: this.state.puesto,
       mesa: this.state.mesa,
     };
-   // const res = await axios.post("http://localhost:4000/votos", params);*/
+   // const res = await axios.post(enviroments.backendUrl + "/votos", params);*/
 
 
 
@@ -214,7 +215,7 @@ export default class VotosEdictar extends Component {
     this.setState({ municipio: "" });
     var params = { departamento: e.target.value, municipio: null };
     const res = await axios.post(
-      "http://localhost:4000/divipol/unmunicipio",
+      enviroments.backendUrl + "/divipol/unmunicipio",
       params
     );
     this.setState({ divipolmunicipio: res.data });
@@ -232,7 +233,7 @@ export default class VotosEdictar extends Component {
       mesa: this.state.mesa,
     };
 
-    const ress = await axios.post("http://localhost:4000/votos", paramss);
+    const ress = await axios.post(enviroments.backendUrl + "/votos", paramss);
 
     this.setState({ reclamos: ress.data.reclamos });
     this.setState({ navegacion: ress.data.navegacion });
@@ -253,7 +254,7 @@ export default class VotosEdictar extends Component {
       mesa: this.state.mesa,
     };
 
-    const ress = await axios.post("http://localhost:4000/votos", paramss);
+    const ress = await axios.post(enviroments.backendUrl + "/votos", paramss);
 
     this.setState({ reclamos: ress.data.reclamos });
     this.setState({ navegacion: ress.data.navegacion });
@@ -266,14 +267,14 @@ export default class VotosEdictar extends Component {
     }
   };
   mostrardepartamentos = async () => {
-    const res = await axios.get("http://localhost:4000/divipol/departamento");
+    const res = await axios.get(enviroments.backendUrl + "/divipol/departamento");
     this.setState({ divipoldepartamento: res.data });
   };
   unmunicipio = async () => {
     const departamento = "valle";
 
     const res = await axios.get(
-      "http://localhost:4000/divipol/unmunicipio",
+      enviroments.backendUrl + "/divipol/unmunicipio",
       departamento,
       departamento,
       departamento
@@ -338,7 +339,7 @@ export default class VotosEdictar extends Component {
       senadores
     };
     console.log("antes del favor")
-    const dato = await axios.post("http://localhost:4000/votos/ver/edictar/senado", params);
+    const dato = await axios.post(enviroments.backendUrl + "/votos/ver/edictar/senado", params);
     console.log("sigue por favor")
    window.location.reload();
   
@@ -396,7 +397,7 @@ export default class VotosEdictar extends Component {
     };
   //  console.log(camara);
   console.log("antes del favor")
-   const res = await axios.post("http://localhost:4000/votos/ver/edictar/camara", params);
+   const res = await axios.post(enviroments.backendUrl + "/votos/ver/edictar/camara", params);
    console.log("sigue por favor")
    window.location.reload();
    
@@ -443,7 +444,7 @@ export default class VotosEdictar extends Component {
     var params = {
       id: this.props.match.params.id,
     };
-    const res = await axios.post("http://localhost:4000/votos/ver/senado",params);
+    const res = await axios.post(enviroments.backendUrl + "/votos/ver/senado",params);
     this.setState({ senado1: res.data[0] });
     this.setState({ senado2: res.data[1] });
     this.setState({ senado3: res.data[2] });
@@ -486,7 +487,7 @@ export default class VotosEdictar extends Component {
     var params = {
       id: this.props.match.params.id,
     };
-    const res = await axios.post("http://localhost:4000/votos/ver/camara",params);
+    const res = await axios.post(enviroments.backendUrl + "/votos/ver/camara",params);
    console.log(res);
     this.setState({ camara1: res.data[0] });
     this.setState({ camara2: res.data[1] });
@@ -525,7 +526,7 @@ export default class VotosEdictar extends Component {
       id: this.props.match.params.id,
     };
 
-    const res = await axios.post("http://localhost:4000/votos/ver", params);
+    const res = await axios.post(enviroments.backendUrl + "/votos/ver", params);
     this.setState({ duplicados: res.data});
     this.setState({ nombre: res.data[0].nombre });
     this.setState({ telefono: res.data[0].telefono });
