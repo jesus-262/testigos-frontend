@@ -47,7 +47,7 @@ export default class VotantesCrear extends Component {
         var params = {
             departamento: e.target.value,             
           }
-        const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+        const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
         
         this.setState({divipolmunicipio: res.data});
         this.setState({valguardarmuni:true});
@@ -74,7 +74,7 @@ export default class VotantesCrear extends Component {
         }
         console.log(nuevorol);
         //console.log(this.state.tipo)  
-        await axios.post('http://localhost:4000/votantes/crear',nuevorol)
+        await axios.post(enviroments.backendUrl + '/votantes/crear',nuevorol)
             //dejar en blanco el formulario
            
         
@@ -83,7 +83,7 @@ export default class VotantesCrear extends Component {
         let cedula ={
             cedula:this.state.cedula
         }
-        const verificedula=await axios.post('http://localhost:4000/votantes/verificarcedula',cedula)
+        const verificedula=await axios.post(enviroments.backendUrl + '/votantes/verificarcedula',cedula)
        // console.log(verificedula.data);
         //this.setState({verificacedula: verificedula.data});
        
@@ -112,15 +112,15 @@ export default class VotantesCrear extends Component {
 
     mostrardepartamentos=async()=>{
 
-        const res = await axios.get('http://localhost:4000/divipol/departamento');
+        const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
         this.setState({divipoldepartamento: res.data});
         //console.log(res);
       }
       unmunicipio=async()=>{
         //console.log(this.setState.departamento)
         const departamento="valle";
-        //const res = await axios.get('http://localhost:4000/divipol/unmunicipio',municipio);
-        const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+        //const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',municipio);
+        const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
         
         this.setState({divipolmunicipio: res.data});
 

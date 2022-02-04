@@ -93,7 +93,7 @@ export default class Testigos extends Component {
       formdata.append("img",this.state.file)
   
       
-      const res = await axios.post('http://localhost:4000/testigos/crear',formdata, { params: {
+      const res = await axios.post(enviroments.backendUrl + '/testigos/crear',formdata, { params: {
         nombre:this.state.nombre,
         telefono: this.state.telefono,
         tipo:this.state.tipo,
@@ -202,7 +202,7 @@ export default class Testigos extends Component {
       municipio:null,
    
       }
-    const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+    const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
     this.setState({divipolmunicipio: res.data});
     this.setState({valguardarmuni:true});
    
@@ -229,7 +229,7 @@ rendermunicipio= () => {
 }
   mostrardepartamentos=async()=>{
 
-    const res = await axios.get('http://localhost:4000/divipol/departamento');
+    const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
     this.setState({divipoldepartamento: res.data});
    
   }
@@ -237,7 +237,7 @@ rendermunicipio= () => {
 
     const departamento="valle";
   
-    const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+    const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
     
     this.setState({divipolmunicipio: res.data});
    

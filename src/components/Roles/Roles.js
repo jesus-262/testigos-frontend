@@ -135,12 +135,12 @@ navegacionChange= async (e) => {
     }
     //console.log(this.state.navegacion);
     if(this.token().tipo=="ADMINISTRADOR"){
-      const res = await axios.get('http://localhost:4000/roles',params);
+      const res = await axios.get(enviroments.backendUrl + '/roles',params);
      
       this.setState({usuario: res.data.usuario}); 
       }else{
        
-        const res = await axios.get('http://localhost:4000/roles/getRoleId/'+`${this.token().id}`);
+        const res = await axios.get(enviroments.backendUrl + '/roles/getRoleId/'+`${this.token().id}`);
        
        this.setState({usuario: res.data.usuario}); 
       }
@@ -152,7 +152,7 @@ navegacionChange= async (e) => {
 //filtro departamentos
 mostrardepartamentos=async()=>{
 
-  const res = await axios.get('http://localhost:4000/divipol/departamento');
+  const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
   this.setState({divipoldepartamento: res.data});
  
 }
@@ -163,7 +163,7 @@ unmunicipio=async () =>{
 
   const departamento="valle";
 
-  const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+  const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
   
   this.setState({divipolmunicipio: res.data});
  
@@ -172,7 +172,7 @@ unmunicipio=async () =>{
 
 borrar=async(id)=>{
   console.log("borro")
-  await axios.delete('http://localhost:4000/roles/'+id);
+  await axios.delete(enviroments.backendUrl + '/roles/'+id);
  
   this.refrescarusuario();
 }
@@ -188,12 +188,12 @@ refrescarusuario=async()=>{
   tipo:this.token().tipo
 }
   if(this.token().tipo=="ADMINISTRADOR"){
-  const res = await axios.get('http://localhost:4000/roles',params);
+  const res = await axios.get(enviroments.backendUrl + '/roles',params);
   this.setState({navegacion: res.data.navegacion});
   this.setState({usuario: res.data.usuario});
   }else{
    
-    const res = await axios.get('http://localhost:4000/roles/getRoleId/'+`${id}`);
+    const res = await axios.get(enviroments.backendUrl + '/roles/getRoleId/'+`${id}`);
     this.setState({navegacion: res.data.navegacion});
    this.setState({usuario: res.data.usuario});
   }
@@ -226,19 +226,19 @@ refrescarusuario=async()=>{
       comuna:this.state.comuna,
       id:this.token().id
       }
-    const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+    const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
     this.setState({divipolmunicipio: res.data});
     this.setState({valguardarmuni:true});
     //filtro de la tabla y aqui lo deje
     if(this.token().tipo=="ADMINISTRADOR"){
-   const tableres =await axios.post('http://localhost:4000/roles', params);
+   const tableres =await axios.post(enviroments.backendUrl + '/roles', params);
    this.setState({usuario: tableres.data.usuario}); 
    this.setState({navegacion: tableres.data.navegacion});
   }else{
     const id=this.token().id;
     console.log("aqui fue");
    console.log(id);
-    const tableres =await axios.post('http://localhost:4000/roles/postRoleId',params);
+    const tableres =await axios.post(enviroments.backendUrl + '/roles/postRoleId',params);
     this.setState({usuario: tableres.data.usuario}); 
     this.setState({navegacion: tableres.data.navegacion});
   }
@@ -256,18 +256,18 @@ refrescarusuario=async()=>{
       }
     console.log("arreglar")
     if(this.token().tipo=="ADMINISTRADOR"){
-      const tableres =await axios.post('http://localhost:4000/roles', params);
+      const tableres =await axios.post(enviroments.backendUrl + '/roles', params);
       this.setState({usuario: tableres.data.usuario}); 
       this.setState({navegacion: tableres.data.navegacion});
      }else{
        const id=this.token().id;
        console.log("aqui fue");
       console.log(id);
-       const tableres =await axios.post('http://localhost:4000/roles/postRoleId',params);
+       const tableres =await axios.post(enviroments.backendUrl + '/roles/postRoleId',params);
        this.setState({usuario: tableres.data.usuario}); 
        this.setState({navegacion: tableres.data.navegacion});
      }
-      //const tableres =await axios.post('http://localhost:4000/roles', params);
+      //const tableres =await axios.post(enviroments.backendUrl + '/roles', params);
      // this.setState({usuario: tableres.data.usuario}); 
      // this.setState({navegacion: tableres.data.navegacion});
   
@@ -283,14 +283,14 @@ refrescarusuario=async()=>{
       }
     
       if(this.token().tipo=="ADMINISTRADOR"){
-        const tableres =await axios.post('http://localhost:4000/roles', params);
+        const tableres =await axios.post(enviroments.backendUrl + '/roles', params);
         this.setState({usuario: tableres.data.usuario}); 
         this.setState({navegacion: tableres.data.navegacion});
        }else{
          const id=this.token().id;
          console.log("aqui fue");
         console.log(id);
-         const tableres =await axios.post('http://localhost:4000/roles/postRoleId',params);
+         const tableres =await axios.post(enviroments.backendUrl + '/roles/postRoleId',params);
          this.setState({usuario: tableres.data.usuario}); 
          this.setState({navegacion: tableres.data.navegacion});
        }
@@ -306,14 +306,14 @@ refrescarusuario=async()=>{
       }
     
       if(this.token().tipo=="ADMINISTRADOR"){
-        const tableres =await axios.post('http://localhost:4000/roles', params);
+        const tableres =await axios.post(enviroments.backendUrl + '/roles', params);
         this.setState({usuario: tableres.data.usuario}); 
         this.setState({navegacion: tableres.data.navegacion});
        }else{
          const id=this.token().id;
          console.log("aqui fue");
         console.log(id);
-         const tableres =await axios.post('http://localhost:4000/roles/postRoleId',params);
+         const tableres =await axios.post(enviroments.backendUrl + '/roles/postRoleId',params);
          this.setState({usuario: tableres.data.usuario}); 
          this.setState({navegacion: tableres.data.navegacion});
        }
@@ -335,7 +335,7 @@ refrescarusuario=async()=>{
     id:this.token().id
   }
   if(this.token().tipo=="ADMINISTRADOR"){
-    const tableres =await axios.post('http://localhost:4000/roles/consultacedula',params);
+    const tableres =await axios.post(enviroments.backendUrl + '/roles/consultacedula',params);
   console.log(tableres)
   this.setState({usuario: tableres.data.usuario}); 
   
@@ -345,7 +345,7 @@ refrescarusuario=async()=>{
      const id=this.token().id;
      console.log("aqui fue");
      console.log(id);
-     const tableres =await axios.post('http://localhost:4000/roles/consultacedula/tipo',params);
+     const tableres =await axios.post(enviroments.backendUrl + '/roles/consultacedula/tipo',params);
      this.setState({usuario: tableres.data.usuario}); 
      this.setState({navegacion: tableres.data.navegacion});
    }
@@ -374,7 +374,7 @@ refrescarusuario=async()=>{
    console.log(this.state.nombre)
 
    if(this.token().tipo=="ADMINISTRADOR"){
-    const tableres =await axios.post('http://localhost:4000/roles/consultanombre',params);
+    const tableres =await axios.post(enviroments.backendUrl + '/roles/consultanombre',params);
     console.log(tableres)
     this.setState({usuario: tableres.data.usuario}); 
     
@@ -383,7 +383,7 @@ refrescarusuario=async()=>{
      const id=this.token().id;
      console.log("aqui fue");
      console.log(id);
-     const tableres =await axios.post('http://localhost:4000/roles/consultanombre/tipo',params);
+     const tableres =await axios.post(enviroments.backendUrl + '/roles/consultanombre/tipo',params);
      this.setState({usuario: tableres.data.usuario}); 
      this.setState({navegacion: tableres.data.navegacion});
    }

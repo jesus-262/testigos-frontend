@@ -126,14 +126,14 @@ export default class Votantes extends Component {
         }
         //console.log(this.state.navegacion);
       
-        const tableres =await axios.post('http://localhost:4000/votantes', params);
+        const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
         this.setState({usuario: tableres.data.usuario}); 
        
     }
     //filtro departamentos
     mostrardepartamentos=async()=>{
     
-      const res = await axios.get('http://localhost:4000/divipol/departamento');
+      const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
       this.setState({divipoldepartamento: res.data});
      
     }
@@ -144,7 +144,7 @@ export default class Votantes extends Component {
     
       const departamento="valle";
     
-      const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+      const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
       
       this.setState({divipolmunicipio: res.data});
      
@@ -153,14 +153,14 @@ export default class Votantes extends Component {
     
     borrar=async(id)=>{
       console.log("borro")
-      await axios.delete('http://localhost:4000/votantes/'+id);
+      await axios.delete(enviroments.backendUrl + '/votantes/'+id);
      
       this.refrescarusuario();
     }
     
     refrescarusuario=async()=>{
     
-      const res = await axios.get('http://localhost:4000/votantes');
+      const res = await axios.get(enviroments.backendUrl + '/votantes');
       //console.log(res.data.usuario)
       this.setState({navegacion: res.data.navegacion});
       this.setState({usuario: res.data.usuario});
@@ -203,11 +203,11 @@ export default class Votantes extends Component {
           tipo:this.state.tipo,
           comuna:this.state.comuna 
           }*/
-        const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+        const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
         this.setState({divipolmunicipio: res.data});
         this.setState({valguardarmuni:true});
         //filtro de la tabla
-       const tableres =await axios.post('http://localhost:4000/votantes', params);
+       const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
         this.setState({usuario: tableres.data.usuario}); 
         this.setState({navegacion: tableres.data.navegacion});
       }
@@ -231,7 +231,7 @@ export default class Votantes extends Component {
           comuna:this.state.comuna 
           }*/
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
       
@@ -250,7 +250,7 @@ export default class Votantes extends Component {
          
           }
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
       }
@@ -268,7 +268,7 @@ export default class Votantes extends Component {
          
           }
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
       }
@@ -286,7 +286,7 @@ export default class Votantes extends Component {
          
           }
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
       }
@@ -304,7 +304,7 @@ export default class Votantes extends Component {
          
           }
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
       }
@@ -317,7 +317,7 @@ export default class Votantes extends Component {
           municipio:this.state.municipio 
           }
         
-          const tableres =await axios.post('http://localhost:4000/votantes', params);
+          const tableres =await axios.post(enviroments.backendUrl + '/votantes', params);
           this.setState({usuario: tableres.data.usuario}); 
           this.setState({navegacion: tableres.data.navegacion});
           console.log("colocando nueva navegacion")
@@ -334,7 +334,7 @@ export default class Votantes extends Component {
       
       this.setState({cedula: e.target.value}); 
       var params = {  cedula: e.target.value }
-      const tableres =await axios.post('http://localhost:4000/votantes/consultacedula',params);
+      const tableres =await axios.post(enviroments.backendUrl + '/votantes/consultacedula',params);
       console.log(tableres)
       this.setState({usuario: tableres.data.usuario}); 
       
@@ -359,7 +359,7 @@ export default class Votantes extends Component {
        this.setState({nombre: e.target.value}); 
        var params = {  nombre: e.target.value }
        console.log(this.state.nombre)
-       const tableres =await axios.post('http://localhost:4000/votantes/consultanombre',params);
+       const tableres =await axios.post(enviroments.backendUrl + '/votantes/consultanombre',params);
        console.log(tableres)
        this.setState({usuario: tableres.data.usuario}); 
        

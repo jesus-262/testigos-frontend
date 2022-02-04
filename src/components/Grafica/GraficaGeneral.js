@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto'
+import { enviroments } from '../../env';
 //import ReactDOM from 'react-dom';
 //import {Link}from 'react-router-dom';
 
@@ -31,7 +32,7 @@ export default class GraficaGeneral extends Component {
         }
 
         
-        const res = await axios.post('http://localhost:4000/graficas/general',params);
+        const res = await axios.post(enviroments.backendUrl + '/graficas/general',params);
         console.log("res.data.conteocomunas")
         console.log(res.data.conteocomunas)
         console.log(res.data.nombrecomunas)
@@ -57,7 +58,7 @@ export default class GraficaGeneral extends Component {
       }
       console.log("params.comuna")
       console.log(params.comuna)
-      const res = await axios.post('http://localhost:4000/graficas/general',params);
+      const res = await axios.post(enviroments.backendUrl + '/graficas/general',params);
       console.log("res.data.comunas")
       console.log(res.data.graficacomuna)
       this.setState({porcomunas: res.data.graficacomuna});

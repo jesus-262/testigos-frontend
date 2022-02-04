@@ -133,14 +133,14 @@ navegacionChange= async (e) => {
     }
     //console.log(this.state.navegacion);
   
-    const tableres =await axios.post('http://localhost:4000/listado', params);
+    const tableres =await axios.post(enviroments.backendUrl + '/listado', params);
     this.setState({usuario: tableres.data.usuario}); 
    
 }
 //filtro departamentos
 mostrardepartamentos=async()=>{
 
-  const res = await axios.get('http://localhost:4000/divipol/departamento');
+  const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
   this.setState({divipoldepartamento: res.data});
  
 }
@@ -151,7 +151,7 @@ unmunicipio=async () =>{
 
   const departamento="valle";
 
-  const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+  const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
   
   this.setState({divipolmunicipio: res.data});
  
@@ -160,14 +160,14 @@ unmunicipio=async () =>{
 
 borrar=async(id)=>{
   console.log("borro")
-  await axios.delete('http://localhost:4000/listado/'+id);
+  await axios.delete(enviroments.backendUrl + '/listado/'+id);
  
   this.refrescarusuario();
 }
 
 refrescarusuario=async()=>{
 
-  const res = await axios.get('http://localhost:4000/listado/listado2perfiles/'+this.token().id);
+  const res = await axios.get(enviroments.backendUrl + '/listado/listado2perfiles/'+this.token().id);
   //console.log(res.data.usuario)
   this.setState({navegacion: res.data.navegacion});
   this.setState({usuario: res.data.usuario});
@@ -202,12 +202,12 @@ refrescarusuario=async()=>{
       }
 
    
-    const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+    const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
     this.setState({divipolmunicipio: res.data});
     this.setState({valguardarmuni:true});
     //filtro de la tabla
     console.log("departamento")
-         const tableres =await axios.post('http://localhost:4000/listado/postListaGestorId',params);
+         const tableres =await axios.post(enviroments.backendUrl + '/listado/postListaGestorId',params);
          this.setState({usuario: tableres.data.usuario}); 
          this.setState({navegacion: tableres.data.navegacion});
   }
@@ -224,7 +224,7 @@ refrescarusuario=async()=>{
         }
     
         console.log("minucipio")
-        const tableres =await axios.post('http://localhost:4000/listado/postListaGestorId',params);
+        const tableres =await axios.post(enviroments.backendUrl + '/listado/postListaGestorId',params);
         this.setState({usuario: tableres.data.usuario}); 
         this.setState({navegacion: tableres.data.navegacion});
   
@@ -239,7 +239,7 @@ refrescarusuario=async()=>{
       id:this.token().id
       }
     console.log("comuna")
-         const tableres =await axios.post('http://localhost:4000/listado/postListaGestorId',params);
+         const tableres =await axios.post(enviroments.backendUrl + '/listado/postListaGestorId',params);
          this.setState({usuario: tableres.data.usuario}); 
          this.setState({navegacion: tableres.data.navegacion});
        
@@ -254,7 +254,7 @@ refrescarusuario=async()=>{
       id:this.token().id
       }
     console.log("tipo")
-         const tableres =await axios.post('http://localhost:4000/listado/postListaGestorId',params);
+         const tableres =await axios.post(enviroments.backendUrl + '/listado/postListaGestorId',params);
          this.setState({usuario: tableres.data.usuario}); 
          this.setState({navegacion: tableres.data.navegacion});
   }
@@ -272,7 +272,7 @@ refrescarusuario=async()=>{
     cedula: e.target.value, 
     id:this.token().id
   }
-  const res =await axios.post('http://localhost:4000/listado/consultacedula/tipo',params);
+  const res =await axios.post(enviroments.backendUrl + '/listado/consultacedula/tipo',params);
 
   this.setState({usuario: res.data.usuario}); 
   
@@ -302,7 +302,7 @@ refrescarusuario=async()=>{
    const id=this.token().id;
    console.log("aqui fue");
    console.log(id);
-   const tableres =await axios.post('http://localhost:4000/listado/consultanombre/tipo',params);
+   const tableres =await axios.post(enviroments.backendUrl + '/listado/consultanombre/tipo',params);
    this.setState({usuario: tableres.data.usuario}); 
    this.setState({navegacion: tableres.data.navegacion});
   

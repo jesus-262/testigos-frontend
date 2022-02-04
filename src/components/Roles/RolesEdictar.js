@@ -51,7 +51,7 @@ export default class RolesEdictar extends Component {
         var params = {
             departamento: e.target.value,             
           }
-        const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+        const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
         
         this.setState({divipolmunicipio: res.data});
         this.setState({valguardarmuni:true});
@@ -82,7 +82,7 @@ export default class RolesEdictar extends Component {
         verificarid:this.token().id
         }
         
-        const verificarurl=await axios.post('http://localhost:4000/roles/verificaedictar/',nuevorol)
+        const verificarurl=await axios.post(enviroments.backendUrl + '/roles/verificaedictar/',nuevorol)
         console.log(verificarurl.data);
         if(verificarurl.data==false){
            window.location.href = "http://localhost:3000/roles";
@@ -114,15 +114,15 @@ export default class RolesEdictar extends Component {
         
 
        
-        const verificarurl=await axios.post('http://localhost:4000/roles/verificaedictar/',nuevorol)
+        const verificarurl=await axios.post(enviroments.backendUrl + '/roles/verificaedictar/',nuevorol)
         console.log(verificarurl.data);
         if(verificarurl.data==false){
            window.location.href = "http://localhost:3000/roles";
         }else{
-            await axios.put('http://localhost:4000/roles/edictar/'+nuevorol.id,nuevorol)
+            await axios.put(enviroments.backendUrl + '/roles/edictar/'+nuevorol.id,nuevorol)
         }
         //console.log(this.state.tipo)  
-       // await axios.put('http://localhost:4000/roles/edictar/'+nuevorol.id,nuevorol)
+       // await axios.put(enviroments.backendUrl + '/roles/edictar/'+nuevorol.id,nuevorol)
             //dejar en blanco el formulario
            
         
@@ -148,7 +148,7 @@ export default class RolesEdictar extends Component {
         let cedula ={
             cedula:this.state.cedula
         }
-        const verificedula=await axios.post('http://localhost:4000/roles/verificarcedula',cedula)
+        const verificedula=await axios.post(enviroments.backendUrl + '/roles/verificarcedula',cedula)
       
         //no existe la cedula en la bd
        if(verificedula.data.verificar==false){
@@ -179,15 +179,15 @@ export default class RolesEdictar extends Component {
 
     mostrardepartamentos=async()=>{
 
-        const res = await axios.get('http://localhost:4000/divipol/departamento');
+        const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
         this.setState({divipoldepartamento: res.data});
         //console.log(res);
       }
       unmunicipio=async()=>{
         //console.log(this.setState.departamento)
         const departamento="valle";
-        //const res = await axios.get('http://localhost:4000/divipol/unmunicipio',municipio);
-        const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+        //const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',municipio);
+        const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
         
         this.setState({divipolmunicipio: res.data});
 
@@ -213,7 +213,7 @@ export default class RolesEdictar extends Component {
           
         }
 
-        const res = await axios.post('http://localhost:4000/roles/unrol',params);
+        const res = await axios.post(enviroments.backendUrl + '/roles/unrol',params);
         //console.log(res.data.usuario)
        // console.log(res.data[0])
         this.setState({usuario:res.data[0]});

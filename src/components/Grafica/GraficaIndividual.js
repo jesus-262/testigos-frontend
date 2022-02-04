@@ -43,7 +43,7 @@ export default class GraficaIndividual extends Component {
         console.log("id de grafica")
         console.log(params.id)
         
-        const res = await axios.get('http://localhost:4000/graficas/ver/'+this.props.match.params.id);
+        const res = await axios.get(enviroments.backendUrl + '/graficas/ver/'+this.props.match.params.id);
         console.log(res.data.numerocomunas)
         console.log(res.data.nombrecomunas)
         this.setState({conteocomunas: res.data.conteocomunas});

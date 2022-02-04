@@ -123,7 +123,7 @@ export default class Votos extends Component {
        
         }
               
-          const res = await axios.post('http://localhost:4000/votos',params);
+          const res = await axios.post(enviroments.backendUrl + '/votos',params);
          
           this.setState({reclamos: res.data.reclamos}); 
          
@@ -177,7 +177,7 @@ export default class Votos extends Component {
       estado:this.state.estado,
       
       }
-    const res =await axios.post('http://localhost:4000/votos', params);
+    const res =await axios.post(enviroments.backendUrl + '/votos', params);
 
     this.setState({reclamos: res.data.reclamos}); 
     this.setState({navegacion: res.data.navegacion});
@@ -196,7 +196,7 @@ export default class Votos extends Component {
       estado:this.state.estado,
       
       }
-    const res =await axios.post('http://localhost:4000/votos', params);
+    const res =await axios.post(enviroments.backendUrl + '/votos', params);
 
     this.setState({reclamos: res.data.reclamos}); 
     this.setState({navegacion: res.data.navegacion});
@@ -216,7 +216,7 @@ export default class Votos extends Component {
       estado:this.state.estado,
       
       }
-    const res =await axios.post('http://localhost:4000/votos', params);
+    const res =await axios.post(enviroments.backendUrl + '/votos', params);
 
     this.setState({reclamos: res.data.reclamos}); 
     this.setState({navegacion: res.data.navegacion});
@@ -236,7 +236,7 @@ export default class Votos extends Component {
       mesa:this.state.mesa,
       
       }
-    const res =await axios.post('http://localhost:4000/votos', params);
+    const res =await axios.post(enviroments.backendUrl + '/votos', params);
 
     this.setState({reclamos: res.data.reclamos}); 
     this.setState({navegacion: res.data.navegacion});
@@ -256,7 +256,7 @@ export default class Votos extends Component {
       mesa:this.state.mesa,
       
       }
-    const res =await axios.post('http://localhost:4000/votos', params);
+    const res =await axios.post(enviroments.backendUrl + '/votos', params);
 
     this.setState({reclamos: res.data.reclamos}); 
     this.setState({navegacion: res.data.navegacion});
@@ -271,7 +271,7 @@ export default class Votos extends Component {
       municipio:null,
    
       }
-    const res = await axios.post('http://localhost:4000/divipol/unmunicipio', params);
+    const res = await axios.post(enviroments.backendUrl + '/divipol/unmunicipio', params);
     this.setState({divipolmunicipio: res.data});
     this.setState({valguardarmuni:true});
    
@@ -288,7 +288,7 @@ export default class Votos extends Component {
       }
     
       
-    const ress =await axios.post('http://localhost:4000/votos', paramss);
+    const ress =await axios.post(enviroments.backendUrl + '/votos', paramss);
 
     this.setState({reclamos: ress.data.reclamos}); 
     this.setState({navegacion: ress.data.navegacion});
@@ -310,7 +310,7 @@ municipioChange= async (e) => {
     }
   
     
-  const ress =await axios.post('http://localhost:4000/votos', paramss);
+  const ress =await axios.post(enviroments.backendUrl + '/votos', paramss);
 
   this.setState({reclamos: ress.data.reclamos}); 
   this.setState({navegacion: ress.data.navegacion});
@@ -330,7 +330,7 @@ rendermunicipio= () => {
 }
   mostrardepartamentos=async()=>{
 
-    const res = await axios.get('http://localhost:4000/divipol/departamento');
+    const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
     this.setState({divipoldepartamento: res.data});
    
   }
@@ -338,7 +338,7 @@ rendermunicipio= () => {
 
     const departamento="valle";
   
-    const res = await axios.get('http://localhost:4000/divipol/unmunicipio',departamento,departamento,departamento);
+    const res = await axios.get(enviroments.backendUrl + '/divipol/unmunicipio',departamento,departamento,departamento);
     
     this.setState({divipolmunicipio: res.data});
    
@@ -360,7 +360,7 @@ rendermunicipio= () => {
     
  
    
-  const res = await axios.get('http://localhost:4000/votos');
+  const res = await axios.get(enviroments.backendUrl + '/votos');
   this.setState({navegacion: res.data.navegacion});
  
   this.setState({reclamos: res.data.reclamos});
@@ -368,7 +368,7 @@ rendermunicipio= () => {
   }
   excel=async()=>{
    
-    const res = await axios.post('http://localhost:4000/votos/ver/excel');
+    const res = await axios.post(enviroments.backendUrl + '/votos/ver/excel');
 
     this.setState({csvsena: res.data.excel});
     this.setState({csvcamara: res.data.excel2});
@@ -404,7 +404,7 @@ rendermunicipio= () => {
 }
 borrar=async(id)=>{
   console.log("borro")
-await axios.delete('http://localhost:4000/votos/'+id);
+await axios.delete(enviroments.backendUrl + '/votos/'+id);
  
 this.reclamos();
 }
