@@ -1,3 +1,3 @@
 export const enviroments = {
-    backendUrl: process.env.BACKEND_URL || 'http://localhost:4000'
+    backendUrl: process.env.REACT_APP_BACKEND_URL || 'http://localhost:4000'
 }
