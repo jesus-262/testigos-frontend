@@ -1,8 +1,26 @@
 import React, { Component } from 'react'
 import {Link}from 'react-router-dom';
+import axios from 'axios';
+import { enviroments } from '../env';
 export default class Header extends Component {
+  token=()=>{
+    const token = JSON.parse(localStorage.getItem('user'));
+    
+      return token;
+  
+   
+  }
   Salir=async()=>{
+    
+    //const user =await axios.post(enviroments.backendUrl + '/login/user',usuario,{withCredentials: true});
     localStorage.removeItem('user');
+    if(this.token()){
+    var params={
+      ip:this.token().ip
+    }}
+    
+    const salio =await axios.post(enviroments.backendUrl + '/login/salir',params);
+  
     
    
   }
@@ -21,13 +39,7 @@ export default class Header extends Component {
      return validar;
     
   }
-  token=()=>{
-    const token = JSON.parse(localStorage.getItem('user'));
-    
-      return token;
-  
-   
-  }
+
   renderescritinio=()=>{
     if(this.autenticacion()){
     if(this.token().tipo=="ADMINISTRADOR" ){

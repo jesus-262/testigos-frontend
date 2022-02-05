@@ -23,9 +23,11 @@ export default class session extends Component {
             contrasena:this.state.contrasena,
             }
             
-            //console.log(this.state.tipo)  
-           await axios.post(enviroments.backendUrl + '/login',usuario,{withCredentials: true});
+            //ruta passport desactivada
+
+           //await axios.post(enviroments.backendUrl + '/login',usuario,{withCredentials: true});
             //console.log(user);
+            //login normal
             const user =await axios.post(enviroments.backendUrl + '/login/user',usuario,{withCredentials: true});
             
             //const user =await axios.get(enviroments.backendUrl + '/login',{withCredentials: true});

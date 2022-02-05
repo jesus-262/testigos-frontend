@@ -324,6 +324,8 @@ font-family: 'Lato';
 /**********End File Inputs**********/
 
 .centrarCajasubir {
+
+  height: 30px;
   position:relative;
-  left:25%;
+  left:12.4%;
 }

@@ -441,7 +441,7 @@ data-multiple-caption="{count} archivos seleccionados" multiple />
                */ }
                 <form className="form-horizontal"  onSubmit={this.onSubmit}>
                 <div class="centrarCajasubir" >
-             <button type="submit" className="btn btn-dark btn-block" style={{ width: "50%", height: "100%"  }}>Subir</button>
+             <button type="submit" className="btn btn-dark btn-block centrarCajasubir" style={{ width: "50%", height: "100%"  }}>Subir</button>
              </div>
              </form>
   </div>
