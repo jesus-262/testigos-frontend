@@ -87,7 +87,7 @@ function App() {
 
     {/*TESTIGOS ID*/}
     <Route exact path="/testigos/:id" render={() => (     
-          <> <Header/> 
+          <> 
      <Route  path="/testigos/:id" exact component={TestigosID}/>   </>) 
             
    

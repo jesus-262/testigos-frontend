@@ -24,9 +24,11 @@ export default class session extends Component {
             }
             
             //console.log(this.state.tipo)  
-            await axios.post(enviroments.backendUrl + '/login',usuario,{withCredentials: true});
+           await axios.post(enviroments.backendUrl + '/login',usuario,{withCredentials: true});
             //console.log(user);
-            const user =await axios.get(enviroments.backendUrl + '/login',{withCredentials: true});
+            const user =await axios.post(enviroments.backendUrl + '/login/user',usuario,{withCredentials: true});
+            
+            //const user =await axios.get(enviroments.backendUrl + '/login',{withCredentials: true});
            
             if(user){
               //  console.log("existe")
