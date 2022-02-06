@@ -310,7 +310,7 @@ export default class VotosEdictar extends Component {
       
       console.log(query)
       //console.log(eval(query))
-       const variante=eval(query);
+       const variante=this.eval(query);
        console.log(variante)
       if (this.variante) {
         
