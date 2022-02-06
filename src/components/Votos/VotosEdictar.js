@@ -309,17 +309,17 @@ export default class VotosEdictar extends Component {
       let query = "this.state." + details;
       let querys = "state." + details;
      console.log(query)
-     console.log(eval("this.state." + details))
-     console.log(window[this.state+'.'+ details])
-     console.log(window[querys])
+     console.log(eval(query))
+    
+
      //variables this
      var miremos;
      
      
-     console.log(window['myvar'])
-      if (eval("this.state." + details)) {
+  
+      if (eval(query)) {
         
-        senadores.push(eval("this.state." + details));
+        senadores.push(eval(query));
        
       }
       
