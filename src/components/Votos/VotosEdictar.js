@@ -306,13 +306,15 @@ export default class VotosEdictar extends Component {
     for (var i = 1; i <= 1000; i++) {
      
       var details = "senador" + i;
-      let query = "state." + details.toString();
+      let query = "this.state." + details.toString();
       
       console.log(query)
-      console.log(eval(this.query))
-      if (eval(this.query)) {
+      //console.log(eval(query))
+       const variante=eval(query);
+       console.log(variante)
+      if (this.variante) {
         
-        senadores.push(eval(this.query));
+        senadores.push(this.variante);
        
       }
       
