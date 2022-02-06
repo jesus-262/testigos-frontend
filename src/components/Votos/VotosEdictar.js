@@ -306,8 +306,11 @@ export default class VotosEdictar extends Component {
     for (var i = 1; i <= 1000; i++) {
      
       var details = "senador" + i;
-      let query = "this.state." + details;
-     
+      let query = "this.state." + details.toString();
+      var que=query;
+      console.log(que);
+      console.log(eval(que));
+      
       if (eval(query)) {
         
         senadores.push(eval(query));
@@ -341,7 +344,7 @@ export default class VotosEdictar extends Component {
     console.log("antes del favor")
     const dato = await axios.post(enviroments.backendUrl + "/votos/ver/edictar/senado", params);
     console.log("sigue por favor")
-   window.location.reload();
+  // window.location.reload();
   
   
     
@@ -561,14 +564,14 @@ export default class VotosEdictar extends Component {
   
     return (
       <>
-        <div class="card" style={{ width: "260px", height: "100%" }}>
-          <div class="card-body">
-            <h5 class="card-title">{partido}</h5>{" "}
+        <div className="card" style={{ width: "260px", height: "100%" }}>
+          <div className="card-body">
+            <h5 className="card-title">{partido}</h5>{" "}
             {senado.map(({ id_postulante, partidos, numero, votos }) => (
               <div key={id_postulante}>
                 <div
                   style={{ width: "10%", height: "5%" }}
-                  class="float-sm-left"
+                  className="float-sm-left"
                 >
                   <input
                     style={{ width: "90%", height: "5%" }}
@@ -591,14 +594,14 @@ export default class VotosEdictar extends Component {
 
     return (
       <>
-        <div class="card" style={{width: "260px", height: "100%" }}>
-          <div class="card-body">
-            <h5 class="card-title">{partido}</h5>{" "}
+        <div className="card" style={{width: "260px", height: "100%" }}>
+          <div className="card-body">
+            <h5 className="card-title">{partido}</h5>{" "}
             {camara.map(({ id_postulante, partidos, numero, votos }) => (
               <div key={id_postulante}>
                 <div
                   style={{ width: "20%", height: "20%" }}
-                  class="float-sm-left"
+                  className="float-sm-left"
                 >
                   <input
                     style={{ width: "90%", height: "5%" }}
@@ -638,27 +641,27 @@ export default class VotosEdictar extends Component {
   };
   renderestado = (estado) => {
     if (estado == 1) {
-      return <i class="glyphicon glyphicon-ok"></i>;
+      return <i className="glyphicon glyphicon-ok"></i>;
     } else {
-      return <i class="glyphicon glyphicon-remove"></i>;
+      return <i className="glyphicon glyphicon-remove"></i>;
     }
   };
   rendertestigo = () => {
     return (
       <>
        
-        <div class="card " style={{ width: "80%", height: "40%" }}>
+        <div className="card " style={{ width: "80%", height: "40%" }}>
           <img
-            class="card-img-top"
+            className="card-img-top"
             src={this.state.imagen}
             alt="Card image cap"
           ></img>
-          <div class="card-body">
-            <h1 class="card-title">Nombre : {this.state.nombre}</h1>
-            <h3 class="card-title">Telefono : {this.state.telefono}</h3>
+          <div className="card-body">
+            <h1 className="card-title">Nombre : {this.state.nombre}</h1>
+            <h3 className="card-title">Telefono : {this.state.telefono}</h3>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">
               DEPARTAMENTO
               <select
                 className="browser-default custom-select"
@@ -678,7 +681,7 @@ export default class VotosEdictar extends Component {
                 ))}
               </select>
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
               MUNICIPIO
               <select
                 className="browser-default custom-select"
@@ -694,8 +697,8 @@ export default class VotosEdictar extends Component {
               </select>
             </li>
           </ul>
-          <div class="card-body">
-            <li class="list-group-item">
+          <div className="card-body">
+            <li className="list-group-item">
           <select className="browser-default custom-select"  type="onSubmit" name="tipo" value={this.state.tipo2} onChange={this.tipoChange}>
                     <option value={this.state.tipo}>TIPO</option>
                     <option>SENADO</option>
@@ -704,8 +707,8 @@ export default class VotosEdictar extends Component {
                 </select>
                 </li>
                 </div>
-          <div class="card-body">
-            <li class="list-group-item">
+          <div className="card-body">
+            <li className="list-group-item">
               {" "}
               ZONA
               <select
@@ -818,7 +821,7 @@ export default class VotosEdictar extends Component {
                 <option>101</option>
               </select>
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
               {" "}
               PUESTO
               <select
@@ -931,7 +934,7 @@ export default class VotosEdictar extends Component {
                 <option>101</option>
               </select>
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
               {" "}
               MESA
               <select
@@ -1056,17 +1059,17 @@ export default class VotosEdictar extends Component {
         
                this.state.duplicados.map(duplicados => 
                 
-                <div class=" d-flex justify-content-center  dupli" >
+                <div className=" d-flex justify-content-center  dupli" >
                   
-               <div class="card" style={{ width: "80%", height: "40%" }} key={duplicados.id}>
+               <div className="card" style={{ width: "80%", height: "40%" }} key={duplicados.id}>
          <img
-           class="card-img-top"
+           className="card-img-top"
            src={duplicados.foto_url}
            alt="Card image cap"
          ></img>
-         <div class="card-body">
-           <h1 class="card-title">Nombre : {duplicados.nombre}</h1>
-           <h3 class="card-title">Telefono : {duplicados.telefono}</h3>
+         <div className="card-body">
+           <h1 className="card-title">Nombre : {duplicados.nombre}</h1>
+           <h3 className="card-title">Telefono : {duplicados.telefono}</h3>
          </div>
 
                </div>   
@@ -1080,13 +1083,13 @@ export default class VotosEdictar extends Component {
     if(this.state.tipo=="SENADO"){
     return (
       <>
-        <div class="container">
-        <div class="d-flex justify-content-around">
+        <div className="container">
+        <div className="d-flex justify-content-around">
         
         
        
-                        <div class="container">
-                  <div class="row">
+                        <div className="container">
+                  <div className="row">
                   
                     {this.rendertestigo()}
                   
@@ -1097,8 +1100,8 @@ export default class VotosEdictar extends Component {
                   </div>
                 </div>
           
-          <div class="d-flex justify-content-between">
-            <div class="d-flex flex-column">
+          <div className="d-flex justify-content-between">
+            <div className="d-flex flex-column">
             <button
           className="btn btn-primary btn-lg  position-relative" 
           style={{ width: "100%", height: "5%" }}
@@ -1109,40 +1112,40 @@ export default class VotosEdictar extends Component {
         >
           Guardar
         </button>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
         
                 {this.rendersena(this.state.senado1, this.state.partido1)}
                 {this.rendersena(this.state.senado2, this.state.partido2)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado3, this.state.partido3)}
                 {this.rendersena(this.state.senado4, this.state.partido4)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado5, this.state.partido5)}
                 {this.rendersena(this.state.senado6, this.state.partido6)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado7, this.state.partido7)}
                 {this.rendersena(this.state.senado8, this.state.partido8)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado9, this.state.partido9)}
                 {this.rendersena(this.state.senado10, this.state.partido10)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado11, this.state.partido11)}
                 {this.rendersena(this.state.senado12, this.state.partido12)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado13, this.state.partido13)}
                 {this.rendersena(this.state.senado14, this.state.partido14)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado15, this.state.partido15)}
                 {this.rendersena(this.state.senado16, this.state.partido16)}
               </div>
-              <div class="d-flex justify-content-between">
+              <div className="d-flex justify-content-between">
                 {this.rendersena(this.state.senado17, this.state.partido17)}
               </div>
             </div>
@@ -1154,16 +1157,16 @@ export default class VotosEdictar extends Component {
     );
   }else{
     return ( <>
-         <div class="container">
-      <div class="d-flex justify-content-around">
+         <div className="container">
+      <div className="d-flex justify-content-around">
           
  
       
         
         
        
-                        <div class="container">
-                  <div class="row">
+                        <div className="container">
+                  <div className="row">
                   
                     {this.rendertestigo()}
                   
@@ -1174,8 +1177,8 @@ export default class VotosEdictar extends Component {
                   </div>
                 </div>
                 
-      <div class="d-flex justify-content-between">
-        <div class="d-flex flex-column">
+      <div className="d-flex justify-content-between">
+        <div className="d-flex flex-column">
         <button
       className="btn btn-primary btn-lg  position-relative" 
       style={{ width: "100%", height: "4%" }}
@@ -1186,32 +1189,32 @@ export default class VotosEdictar extends Component {
     >
       Guardar
     </button>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           
           {this.rendercama(this.state.camara1, this.state.partido1)}
           {this.rendercama(this.state.camara2, this.state.partido2)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara3, this.state.partido3)}
           {this.rendercama(this.state.camara4, this.state.partido4)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara5, this.state.partido5)}
           {this.rendercama(this.state.camara6, this.state.partido6)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara7, this.state.partido7)}
           {this.rendercama(this.state.camara8, this.state.partido8)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara9, this.state.partido9)}
           {this.rendercama(this.state.camara10, this.state.partido10)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara11, this.state.partido11)}
           {this.rendercama(this.state.camara12, this.state.partido12)}
           </div>
-          <div class="d-flex justify-content-between">
+          <div className="d-flex justify-content-between">
           {this.rendercama(this.state.camara13, this.state.partido13)}
          
           </div>
