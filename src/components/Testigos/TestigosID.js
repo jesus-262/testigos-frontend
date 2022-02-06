@@ -87,7 +87,7 @@ export default class TestigosID extends Component {
   
       
       const res = await axios.post(enviroments.backendUrl + '/testigos/crear',formdata, { params: {
-        cedula:this.state.cedula,
+        url:this.state.id,
         mesa:this.state.mesa
        
         
@@ -95,14 +95,22 @@ export default class TestigosID extends Component {
         } });
     
   
-        console.log("res");
-       console.log(res);
+       
     
-  
-      this.setState({opacity: 1}); 
-      this.setState({mensaje:"Imagen subida exitosamente!"});
-      this.setState({titulo:"Éxito"});
-       this.setState({modal:true});
+  if(res.data=="no existe"){
+    this.setState({opacity: 1}); 
+    this.setState({mensaje:"Esta persona no esta registrada"});
+    this.setState({titulo:"Intente con otra url"});
+     this.setState({modal:true});
+
+  }else{
+    this.setState({opacity: 1}); 
+    this.setState({mensaje:"Imagen subida exitosamente!"});
+    this.setState({titulo:"Éxito"});
+     this.setState({modal:true});
+
+  }
+ 
     }
    
   
@@ -245,11 +253,9 @@ rendermunicipio= () => {
   async componentDidMount() {
 
    
-    var parametro=this.props.match.params.id;
-    console.log(parametro);
-    if(this.esBASE64(parametro)){
-      await this.setState({cedula:atob(parametro.toString())})
-    }
+   
+    await this.setState({id:this.props.match.params.id})
+    
    
   
    
@@ -276,13 +282,13 @@ rendermunicipio= () => {
   render() {
     return (
      <>
-      <div class="abs-center2">
-      <div class="container">
+      <div className="abs-center2">
+      <div className="container">
      {this.rendermodal()}
-  <div class="d-flex justify-content-center">
-  <div class="card" style={{ width: "80%", height: "400px" }}>
-  <div class="card-body">
-    <h5 class="card-title">Foto</h5>
+  <div className="d-flex justify-content-center">
+  <div className="card" style={{ width: "80%", height: "400px" }}>
+  <div className="card-body">
+    <h5 className="card-title">Foto</h5>
     
     <div className="col-xs-12" >
                   <div className="form-group">
@@ -404,7 +410,7 @@ rendermunicipio= () => {
                 </div>
 
                 <div className="col-xs-12 " >
-                <div class="container-input">
+                <div className="container-input">
 <input tyle={{ width: "200px", height: "600px"  }}
 type="file" 
 
@@ -413,16 +419,16 @@ value={this.state.imagen}
 onChange={this.imagenChange}
 name="file-5" 
 id="file-5" 
-class="inputfile inputfile-5" 
+className="inputfile inputfile-5" 
 data-multiple-caption="{count} archivos seleccionados" multiple />
-<label for="file-5">
+<label htmlFor="file-5" >
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" className="bi bi-camera-fill" viewBox="0 0 16 16">
   <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
   <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
 </svg>
 </figure>
-<span class="iborrainputfile">Seleccionar archivo</span>
+<span className="iborrainputfile">Seleccionar archivo</span>
 </label>
 </div>
 </div>
@@ -439,7 +445,7 @@ data-multiple-caption="{count} archivos seleccionados" multiple />
                   </div>
                */ }
                 <form className="form-horizontal"  onSubmit={this.onSubmit}>
-                <div class="centrarCajasubir" >
+                <div className="centrarCajasubir" >
              <button type="submit" className="btn btn-dark btn-block centrarCajasubir" style={{ width: "50%", height: "100%"  }}>Subir</button>
              </div>
              </form>
