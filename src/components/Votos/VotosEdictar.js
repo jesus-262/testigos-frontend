@@ -312,7 +312,7 @@ export default class VotosEdictar extends Component {
       
       if (eval(this.query)) {
         
-        senadores.push(eval(query));
+        senadores.push(eval(this.query));
        
       }
       
