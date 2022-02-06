@@ -303,10 +303,11 @@ export default class VotosEdictar extends Component {
    
     var senadores = [];
 
-    for (var i = 1; i <= 1000; i++) {
+    for (var i = 1; i <= 30; i++) {
      
       var details = "senador" + i;
       let query = eval("this.state." + details.toString());
+   console.log(i)
    console.log(query)
    console.log(this.query)
       if (this.query) {
@@ -314,6 +315,7 @@ export default class VotosEdictar extends Component {
         senadores.push(this.query);
        
       }
+    
       
     }
     /*
