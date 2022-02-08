@@ -3,7 +3,7 @@ import axios from "axios";
 import { enviroments } from '../../env';
 import { Link } from "react-router-dom";
 //import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from "react-bootstrap";
+import { Button, OffcanvasHeader } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import "jquery/dist/jquery.min.js";
 
@@ -17,6 +17,8 @@ var statesenado = {};
 
 export default class VotosEdictar extends Component {
   state = {
+    votos: [],
+    estadovotos:false,
     nombre: "",
     telefono: 0,
     tipo: "",
@@ -299,41 +301,6 @@ export default class VotosEdictar extends Component {
     
 
     
-
-   
-    var senadores = [];
-
-    for (var i = 1; i <= 30; i++) {
-     
-      var details = "senador" + i;
-      let query = "this.state." + details;
-      let querys = "state." + details;
-     console.log(query)
-     console.log(eval(query))
-    
-
-     //variables this
-     var miremos;
-     
-     
-  
-      if (eval(query)) {
-        
-        senadores.push(eval(query));
-       
-      }
-      
-    }
-    /*
-    if(this.state.tipo2==""){
-      console.log("nullllll")
-    }else if(this.state.tipo==this.state.tipo2){
-      this.setState({ tipo: this.state.tipo2});
-      console.log("iguales")
-    }else{
-      console.log("diferente")
-      this.setState({ tipo: this.state.tipo2});
-    }*/
     var params = {
       id: this.props.match.params.id,
       municipio: this.state.municipio,
@@ -345,12 +312,12 @@ export default class VotosEdictar extends Component {
       zona: this.state.zona,
       puesto: this.state.puesto,
       mesa: this.state.mesa,
-      senadores
+      senadores:this.state.votos
     };
     console.log("antes del favor")
     const dato = await axios.post(enviroments.backendUrl + "/votos/ver/edictar/senado", params);
     console.log("sigue por favor")
-   //window.location.reload();
+    window.location.reload();
   
   
     
@@ -363,34 +330,6 @@ export default class VotosEdictar extends Component {
 
   Guardar2= async (e) => {
    
-    console.log("guadar senado");
-    
-
-   
-    var camaras = [];
-
-    for (var i = 1; i <= 1000; i++) {
-     
-      var details = "camarar" + i;
-      let query = "this.state." + details;
-     
-      if (eval(query)) {
-        
-        camaras.push(eval(query));
-       
-      }
-      
-    }
-    /*
-    if(this.state.tipo2==""){
-      console.log("nullllll")
-    }else if(this.state.tipo==this.state.tipo2){
-      this.setState({ tipo: this.state.tipo2});
-      console.log("iguales")
-    }else{
-      console.log("diferente")
-      this.setState({ tipo: this.state.tipo2});
-    }*/
     var params = {
       id: this.props.match.params.id,
       municipio: this.state.municipio,
@@ -402,7 +341,7 @@ export default class VotosEdictar extends Component {
       zona: this.state.zona,
       puesto: this.state.puesto,
       mesa: this.state.mesa,
-      camaras
+      camaras:this.state.votos
     };
   //  console.log(camara);
   console.log("antes del favor")
@@ -414,10 +353,59 @@ export default class VotosEdictar extends Component {
   
   votosChange = async (e) => {
     const { name, value } = e.target;
-    //this.setState({tipo: e.target.value});
+  
  
     var details = "senador" + [e.target.name];
+     //para llenar el arreglo unavez
+    if(this.state.estadovotos==false){
+      this.state.votos.push({id_postulante:name,votos:value});
+    }
+    
+    
+     //para iterar el arreglo con ese dato
+     var push=true;
+     if(this.state.estadovotos==true){
+     for(var i=0; i<this.state.votos.length;i++){
+      
+      
+      
+       if(this.state.votos[i].id_postulante==name){
+  
+        this.state.votos[i].id_postulante=name;
+        this.state.votos[i].votos=value;
+        push=false;
+       // this.state.votos.splice(i,1);
+       }
+       if (this.state.votos[i].id_postulante==name && this.state.votos[i].votos==''){
+         //borrar dato si el voto es cero
+         console.log("entro a 0")
+         var index = i;
+         this.state.votos.splice(index,1);
+       }
 
+    
+       // this.state.votos.push({id_postulante:name,votos:value});
+        
+      
+     
+        
+       }
+      //if(this.state.votos.concat)
+     }
+
+     
+     
+     //para un push
+
+
+     if(push==true && this.state.estadovotos==true){
+      this.state.votos.push({id_postulante:name,votos:value});
+     }
+     this.setState({estadovotos: true});
+    
+     console.log("data");
+     console.log(this.state.votos);
+    
     this.setState((pre) => ({
       ...pre,
       [details]: {
@@ -426,22 +414,73 @@ export default class VotosEdictar extends Component {
         ["votos"]: value,
       },
     }));
-
+    //console.log(this.state.senador1);
+    //console.log(this.state.senador2);
+    //console.log(this.state.senador3);
     
   };
   votosChange2 = async (e) => {
     console.log("entro")
     
     const { name, value } = e.target;
-    //this.setState({tipo: e.target.value});
- 
-    var detalles = "camarar" + [e.target.name];
-     console.log({ name, value })
 
-    this.setState((pro) => ({
-      ...pro,
-      [detalles]: {
-        ...pro.detalles,
+ 
+ 
+    var details = "camarar" + [e.target.name];
+     //para llenar el arreglo unavez
+    if(this.state.estadovotos==false){
+      this.state.votos.push({id_postulante:name,votos:value});
+    }
+    
+    
+     //para iterar el arreglo con ese dato
+     var push=true;
+     if(this.state.estadovotos==true){
+     for(var i=0; i<this.state.votos.length;i++){
+      
+      
+      
+       if(this.state.votos[i].id_postulante==name){
+  
+        this.state.votos[i].id_postulante=name;
+        this.state.votos[i].votos=value;
+        push=false;
+       // this.state.votos.splice(i,1);
+       }
+       if (this.state.votos[i].id_postulante==name && this.state.votos[i].votos==''){
+         //borrar dato si el voto es cero
+         console.log("entro a 0")
+         var index = i;
+         this.state.votos.splice(index,1);
+       }
+
+    
+       // this.state.votos.push({id_postulante:name,votos:value});
+        
+      
+     
+        
+       }
+      //if(this.state.votos.concat)
+     }
+
+     
+     
+     //para un push
+
+
+     if(push==true && this.state.estadovotos==true){
+      this.state.votos.push({id_postulante:name,votos:value});
+     }
+     this.setState({estadovotos: true});
+    
+     console.log("data");
+     console.log(this.state.votos);
+    
+    this.setState((pre) => ({
+      ...pre,
+      [details]: {
+        ...pre.details,
         ["id_postulante"]: name,
         ["votos"]: value,
       },
