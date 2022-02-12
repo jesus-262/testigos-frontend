@@ -609,13 +609,13 @@ export default class VotosEdictar extends Component {
   
     return (
       <>
-        <div class="card" style={{ width: "260px", height: "100%" }}>
+        <div class="card" style={{ width: "280px", height: "100%" }}>
           <div class="card-body">
             <h5 class="card-title">{partido}</h5>{" "}
             {senado.map(({ id_postulante, partidos, numero, votos }) => (
               <div key={id_postulante}>
                 <div
-                  style={{ width: "10%", height: "5%" }}
+                  style={{ width: "15%", height: "5%" }}
                   class="float-sm-left"
                 >
                   <input type="number"
