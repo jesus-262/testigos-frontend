@@ -560,6 +560,8 @@ this.reclamos();
                 <ExcelSheet data={this.state.csvsena}  name="Employees" >
                        <ExcelColumn label="ID"
                        value={(data) => data.id }/>
+                         <ExcelColumn label="Candidato"
+                       value={(data) => data.candidato }/>
                        <ExcelColumn label="Nombre"
                        value={(data) => data.nombre }/>
                         <ExcelColumn label="Apellido"
@@ -600,6 +602,8 @@ this.reclamos();
                 <ExcelSheet data={this.state.csvcamara}  name="Employees" >
                        <ExcelColumn label="ID"
                        value={(data) => data.id }/>
+                         <ExcelColumn label="Candidato"
+                       value={(data) => data.candidato }/>
                        <ExcelColumn label="Nombre"
                        value={(data) => data.nombre }/>
                         <ExcelColumn label="Apellido"
