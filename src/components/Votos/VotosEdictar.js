@@ -101,6 +101,12 @@ export default class VotosEdictar extends Component {
     const token = JSON.parse(localStorage.getItem("user"));
     return token;
   };
+  borrar=async(id)=>{
+    console.log("borro")
+    await axios.delete(enviroments.backendUrl + '/votos/copias/'+id);
+   
+    window.location.reload();
+  }
   modalabrir = async (e) => {
     this.setState({ modal: !this.state.modal });
     this.setState({ opacity: 1 });
@@ -575,7 +581,14 @@ export default class VotosEdictar extends Component {
     };
 
     const res = await axios.post(enviroments.backendUrl + "/votos/ver", params);
-    this.setState({ duplicados: res.data});
+    var dupli=[];
+    for(var i=1;i<res.data.length;i++){
+
+        dupli.push(res.data[i])
+       
+    }
+    console.log(dupli)
+    this.setState({ duplicados: dupli});
     this.setState({ nombre: res.data[0].nombre });
     this.setState({ telefono: res.data[0].telefono });
     this.setState({ tipo: res.data[0].tipo });
@@ -1115,6 +1128,8 @@ export default class VotosEdictar extends Component {
          <div class="card-body">
            <h1 class="card-title">Nombre : {duplicados.nombre}</h1>
            <h3 class="card-title">Telefono : {duplicados.telefono}</h3>
+           <button className="btn btn-secondary" type="onSubmit" name="page" value="1" onClick={()=>this.borrar(duplicados.id)}>Borrar</button>
+
          </div>
 
                </div>   

@@ -398,9 +398,9 @@ rendermunicipio= () => {
   }
   renderestado=(estado)=>{
   if(estado==1){
-    return <i class="glyphicon glyphicon-ok"></i>
+    return <i className="glyphicon glyphicon-ok"></i>
   }else{
-    return <i class="glyphicon glyphicon-remove"></i>
+    return <i className="glyphicon glyphicon-remove"></i>
   }
   
 }
@@ -456,15 +456,107 @@ this.reclamos();
                            >
                   <option value="">ZONA</option>
                   <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+                <option>61</option>
+                <option>62</option>
+                <option>63</option>
+                <option>64</option>
+                <option>65</option>
+                <option>66</option>
+                <option>67</option>
+                <option>68</option>
+                <option>69</option>
+                <option>70</option>
+                <option>71</option>
+                <option>72</option>
+                <option>73</option>
+                <option>74</option>
+                <option>75</option>
+                <option>76</option>
+                <option>77</option>
+                <option>78</option>
+                <option>79</option>
+                <option>80</option>
+                <option>81</option>
+                <option>82</option>
+                <option>83</option>
+                <option>84</option>
+                <option>85</option>
+                <option>86</option>
+                <option>87</option>
+                <option>88</option>
+                <option>89</option>
+                <option>90</option>
+                <option>91</option>
+                <option>92</option>
+                <option>93</option>
+                <option>94</option>
+                <option>95</option>
+                <option>96</option>
+                <option>97</option>
+                <option>98</option>
+                <option>99</option>
+                <option>100</option>
+                <option>101</option>
+
                 </select>
                 </th>
                 <th scope="col">
@@ -472,15 +564,106 @@ this.reclamos();
                            >
                   <option value="">PUESTO</option>
                   <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+                <option>61</option>
+                <option>62</option>
+                <option>63</option>
+                <option>64</option>
+                <option>65</option>
+                <option>66</option>
+                <option>67</option>
+                <option>68</option>
+                <option>69</option>
+                <option>70</option>
+                <option>71</option>
+                <option>72</option>
+                <option>73</option>
+                <option>74</option>
+                <option>75</option>
+                <option>76</option>
+                <option>77</option>
+                <option>78</option>
+                <option>79</option>
+                <option>80</option>
+                <option>81</option>
+                <option>82</option>
+                <option>83</option>
+                <option>84</option>
+                <option>85</option>
+                <option>86</option>
+                <option>87</option>
+                <option>88</option>
+                <option>89</option>
+                <option>90</option>
+                <option>91</option>
+                <option>92</option>
+                <option>93</option>
+                <option>94</option>
+                <option>95</option>
+                <option>96</option>
+                <option>97</option>
+                <option>98</option>
+                <option>99</option>
+                <option>100</option>
+                <option>101</option>
                 </select>
                 </th>
                 <th scope="col">
@@ -488,27 +671,119 @@ this.reclamos();
                            >
                   <option value="">MESA</option>
                   <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+                <option>61</option>
+                <option>62</option>
+                <option>63</option>
+                <option>64</option>
+                <option>65</option>
+                <option>66</option>
+                <option>67</option>
+                <option>68</option>
+                <option>69</option>
+                <option>70</option>
+                <option>71</option>
+                <option>72</option>
+                <option>73</option>
+                <option>74</option>
+                <option>75</option>
+                <option>76</option>
+                <option>77</option>
+                <option>78</option>
+                <option>79</option>
+                <option>80</option>
+                <option>81</option>
+                <option>82</option>
+                <option>83</option>
+                <option>84</option>
+                <option>85</option>
+                <option>86</option>
+                <option>87</option>
+                <option>88</option>
+                <option>89</option>
+                <option>90</option>
+                <option>91</option>
+                <option>92</option>
+                <option>93</option>
+                <option>94</option>
+                <option>95</option>
+                <option>96</option>
+                <option>97</option>
+                <option>98</option>
+                <option>99</option>
+                <option>100</option>
+                <option>101</option>
                 </select>
                 </th>
-                <th scope="col">
+                <th scope="col">ESTADO
+                {/* 
                 <select className="browser-default custom-select"  type="onSubmit" name="tipo" value={this.state.estado} onChange={this.estadoChange}>
                     <option value="">ESTADO</option>
                     <option value="1">✓</option>
                     <option value="0">×</option>
                 
-                </select>
+                </select>*/}
                 </th>
                 <th scope="col">Ver</th>
-                <th scope="col">Borrar</th>
+               
                
                 
               
@@ -532,7 +807,7 @@ this.reclamos();
                 <td >{reclamos.mesa}</td>
                 <td >{this.renderestado(reclamos.estado)}</td>
                 <td><Link  to={"/votos/edictar/"+reclamos.id} className="btn btn-primary glyphicon glyphicon-search" ></Link></td>
-                <td><Link  to="/votos" className="btn btn-danger glyphicon glyphicon-trash" onClick={()=>this.borrar(reclamos.id)}></Link></td>
+                {/* <td><Link  to="/votos" className="btn btn-danger glyphicon glyphicon-trash" onClick={()=>this.borrar(reclamos.id)}></Link></td>*/}
                 
              
                 {/*this.renderbotoneliminar(reclamos)*/}
@@ -554,8 +829,8 @@ this.reclamos();
           {this.rendernavegacion()}
     
           </div>
-          <div class="row align-items-start" style={{ width: "80%", height: "400px", margin: "20px"  }}>
-          <div class="p-2">
+          <div className="row align-items-start" style={{ width: "80%", height: "400px", margin: "20px"  }}>
+          <div className="p-2">
           <ExcelFile filename="TESTIGOS SENADO" element={<button className="btn btn-info glyphicon glyphicon-download-alt"  style={{ width: "150%", height: "150%" }}  key= {110}  >  </button>}>
                 <ExcelSheet data={this.state.csvsena}  name="Employees" >
                        <ExcelColumn label="ID"
@@ -597,7 +872,7 @@ this.reclamos();
                
             </ExcelFile>
             </div>
-            <div class="p-2">
+            <div className="p-2">
             <ExcelFile filename="TESTIGOS CAMARA" element={<button className="btn btn-info glyphicon glyphicon-download-alt botonexcel2" style={{ width: "90%", height: "150%" }}  key= {110}  >  </button>}>
                 <ExcelSheet data={this.state.csvcamara}  name="Employees" >
                        <ExcelColumn label="ID"
