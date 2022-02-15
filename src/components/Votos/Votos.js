@@ -330,6 +330,53 @@ rendermunicipio= () => {
   }
 
 }
+rendervariable= (foto,variable) => {
+            
+  if(foto!="https://res.cloudinary.com/copete262/image/upload/v1644026979/NODISPONIBLE_nob7of.jpg"){
+      
+      
+    return variable
+
+  }
+
+}
+renderreclamo= () => {
+            
+
+      
+      
+    return  this.state.reclamos.map(reclamos => 
+      <tr key={reclamos.id}>
+    
+      
+      <td >{reclamos.nombre}</td>
+      <td >{reclamos.apellido}</td>
+      <td >{reclamos.telefono}</td>
+      <td >{reclamos.tipo}</td>
+      <td >{reclamos.departamento}</td>
+      <td >{reclamos.municipio}</td>
+      <td >{reclamos.zona}</td>
+      <td >{reclamos.puesto}</td>
+      <td >{reclamos.mesa}</td>
+      <td >{this.renderestado(reclamos.estado)}</td>
+      <td><Link  to={"/votos/edictar/"+reclamos.id} className="btn btn-primary glyphicon glyphicon-search" ></Link></td>
+      {/* <td><Link  to="/votos" className="btn btn-danger glyphicon glyphicon-trash" onClick={()=>this.borrar(reclamos.id)}></Link></td>*/}
+      <td >  <img
+           class="votosimagen"
+           src={reclamos.foto_url}
+           alt="Card image cap"
+         ></img></td>
+   
+      {/*this.renderbotoneliminar(reclamos)*/}
+     
+
+      </tr>             
+      )
+    
+
+
+
+}
   mostrardepartamentos=async()=>{
 
     const res = await axios.get(enviroments.backendUrl + '/divipol/departamento');
@@ -366,6 +413,7 @@ rendermunicipio= () => {
   this.setState({navegacion: res.data.navegacion});
  
   this.setState({reclamos: res.data.reclamos});
+  console.log(res.data.reclamos);
    
   }
   excel=async()=>{
@@ -418,6 +466,7 @@ this.reclamos();
    <table className="table">
             <thead className="thead-dark">
               <tr>
+              
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
               <th scope="col">Telefono</th>
@@ -783,6 +832,8 @@ this.reclamos();
                 </select>*/}
                 </th>
                 <th scope="col">Ver</th>
+                <th scope="col">imagen  </th>
+                
                
                
                 
@@ -792,30 +843,8 @@ this.reclamos();
             </thead>
             
             <tbody>
-              
-              {
-                this.state.reclamos.map(reclamos => 
-                <tr key={reclamos.id}>
-                <td >{reclamos.nombre}</td>
-                <td >{reclamos.apellido}</td>
-                <td >{reclamos.telefono}</td>
-                <td >{reclamos.tipo}</td>
-                <td >{reclamos.departamento}</td>
-                <td >{reclamos.municipio}</td>
-                <td >{reclamos.zona}</td>
-                <td >{reclamos.puesto}</td>
-                <td >{reclamos.mesa}</td>
-                <td >{this.renderestado(reclamos.estado)}</td>
-                <td><Link  to={"/votos/edictar/"+reclamos.id} className="btn btn-primary glyphicon glyphicon-search" ></Link></td>
-                {/* <td><Link  to="/votos" className="btn btn-danger glyphicon glyphicon-trash" onClick={()=>this.borrar(reclamos.id)}></Link></td>*/}
-                
-             
-                {/*this.renderbotoneliminar(reclamos)*/}
-               
-
-                </tr>             
-                )
-              }
+            {this.renderreclamo()}
+           
               
              
              
