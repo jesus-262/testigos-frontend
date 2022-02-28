@@ -534,7 +534,7 @@ export default class VotosEdictar extends Component {
     this.setState({ partido13: this.state.senado13[0].partidos });
     this.setState({ partido14: this.state.senado14[0].partidos });
     this.setState({ partido15: this.state.senado15[0].partidos });
-    this.setState({ partido15: this.state.senado16[0].partidos });
+    this.setState({ partido16: this.state.senado16[0].partidos });
     this.setState({ partido17: this.state.senado17[0].partidos });
   };
   camara = async () => {

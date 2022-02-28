@@ -21,7 +21,9 @@ const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 export default class Votos extends Component {
   state = {
     csvsena:[],
+    
     csvcamara:[],
+    excelID:'',
     nombre: '',
     apellido: '',
     telefono: 0,
@@ -45,26 +47,81 @@ export default class Votos extends Component {
     navegacion:[],
    
   };
+  rendernavegacion2= () => {
+ 
+    var paginacion=[];
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {1} onClick={()=>this.navegacionChange(1)}> {1}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {2} onClick={()=>this.navegacionChange(2)}> {2}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {3} onClick={()=>this.navegacionChange(3)}> {3}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {4} onClick={()=>this.navegacionChange(4)}> {4}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {5} onClick={()=>this.navegacionChange(5)}> {5}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {6} onClick={()=>this.navegacionChange(6)}> {6}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {7} onClick={()=>this.navegacionChange(7)}> {7}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {8} onClick={()=>this.navegacionChange(8)}> {8}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {9} onClick={()=>this.navegacionChange(9)}> {9}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {10} onClick={()=>this.navegacionChange(10)}> {10}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {11} onClick={()=>this.navegacionChange(11)}> {11}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {12} onClick={()=>this.navegacionChange(12)}> {12}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {13} onClick={()=>this.navegacionChange(13)}> {13}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {14} onClick={()=>this.navegacionChange(14)}> {14}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {15} onClick={()=>this.navegacionChange(15)}> {15}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {16} onClick={()=>this.navegacionChange(16)}> {16}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {17} onClick={()=>this.navegacionChange(17)}> {17}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {18} onClick={()=>this.navegacionChange(18)}> {18}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {19} onClick={()=>this.navegacionChange(19)}> {19}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {20} onClick={()=>this.navegacionChange(20)}> {20}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {21} onClick={()=>this.navegacionChange(21)}> {21}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {22} onClick={()=>this.navegacionChange(22)}> {22}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {23} onClick={()=>this.navegacionChange(23)}> {23}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {24} onClick={()=>this.navegacionChange(24)}> {24}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {25} onClick={()=>this.navegacionChange(25)}> {25}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {26} onClick={()=>this.navegacionChange(26)}> {26}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {27} onClick={()=>this.navegacionChange(27)}> {27}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {28} onClick={()=>this.navegacionChange(28)}> {28}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {29} onClick={()=>this.navegacionChange(29)}> {29}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {30} onClick={()=>this.navegacionChange(30)}> {30}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {31} onClick={()=>this.navegacionChange(31)}> {31}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {32} onClick={()=>this.navegacionChange(32)}> {32}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {33} onClick={()=>this.navegacionChange(33)}> {33}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {34} onClick={()=>this.navegacionChange(34)}> {34}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {35} onClick={()=>this.navegacionChange(35)}> {35}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {36} onClick={()=>this.navegacionChange(36)}> {36}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {37} onClick={()=>this.navegacionChange(37)}> {37}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {38} onClick={()=>this.navegacionChange(38)}> {38}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {39} onClick={()=>this.navegacionChange(39)}> {39}</button>)
+    paginacion.push(<button className="btn btn-secondary btn-lg" type="onSubmit" name="page" key= {40} onClick={()=>this.navegacionChange(40)}> {40}</button>)
+    return paginacion;
+  }
   rendernavegacion= () => {
  
     var paginacion=[];
+    /*
+    for(var i=1;i<=40;i++){
+      console.log(i)
+      var t=i;
+      paginacion.push(<button className="btn btn-secondary " type="onSubmit" name="page" key= {i} onClick={()=>this.navegacionChange(3)}> {i}</button>)
+    }*/
     
   
+  
+
+
     if(this.state.navegacion===''){
    
     }
       if(this.state.navegacion!==''){
       
-    
+
         if(this.state.navegacion.page===1){
          
           paginacion.push( <div className="page-items disabled" key= {200}><button className="btn btn-secondary" type="onSubmit" name="page" >Primera pagina</button></div>)
         }else{
           
           paginacion.push( <div className="page-items" key= {201}><button className="btn btn-secondary" type="onSubmit" name="page" value="1" onClick={()=>this.navegacionChange(1)}>Primera pagina</button></div>)
+
         }
         
-    
+       
     
     var i;
     if(this.state.navegacion.page>5){
@@ -105,10 +162,11 @@ export default class Votos extends Component {
     
     }
     navegacionChange= async (e) => {  
+      console.log("pagina")
+      console.log(e);
       
-     
       this.state.navegacion.page=e;
-      
+     
       var params = {  page: e, 
         nombre:this.state.nombre,
         telefono: this.state.telefono,
@@ -164,7 +222,13 @@ export default class Votos extends Component {
   
   }
   
-
+  excelIDChange= async (e) => {  
+    this.setState({excelID: e.target.value});
+    console.log(e.target.value)
+    this.excel(e.target.value);
+  
+  }
+ 
   zonaChange= async (e) => {  
     this.setState({zona: e.target.value});
    
@@ -402,7 +466,7 @@ renderreclamo= () => {
     this.mostrardepartamentos();
     this.unmunicipio();
     this.reclamos();
-    this.excel();
+    
   }
   reclamos=async()=>{
 
@@ -416,9 +480,11 @@ renderreclamo= () => {
   console.log(res.data.reclamos);
    
   }
-  excel=async()=>{
-   
-    const res = await axios.post(enviroments.backendUrl + '/votos/ver/excel');
+  excel=async(excelID)=>{
+    var params = {
+      excelID:excelID
+    }
+    const res = await axios.post(enviroments.backendUrl + '/votos/ver/excel',params);
 
     this.setState({csvsena: res.data.excel});
     this.setState({csvcamara: res.data.excel2});
@@ -855,12 +921,37 @@ this.reclamos();
             </tbody>
           </table>
           <div className="d-flex justify-content-center">
-          {this.rendernavegacion()}
+       
+
+    {this.rendernavegacion()}
+  
+    
+  
+
+          
     
           </div>
-          <div className="row align-items-start" style={{ width: "80%", height: "400px", margin: "20px"  }}>
+          <div class="row mb-3">
+          <div class="container">
+  <div class="container " style={{ width: "66%", height: "20px"  }}>
+  
+    {this.rendernavegacion2()}
+  
+ 
+  </div>
+</div>
+
+   </div>
+  
+    <input type="number"  onChange={this.excelIDChange} style={{ width: "10%", height: "20px", margin: "20px"  }} className="form-control input-lg" 
+           placeholder="Digite ID candidato"></input> 
+         
+          <div className="row align-items-start " style={{ width: "100%", height: "400px", margin: "20px"  }}>
+          
           <div className="p-2">
-          <ExcelFile filename="TESTIGOS SENADO" element={<button className="btn btn-info glyphicon glyphicon-download-alt"  style={{ width: "150%", height: "150%" }}  key= {110}  >  </button>}>
+        
+           <label>SENADO</label>
+          <ExcelFile filename="TESTIGOS SENADO" element={<button className="btn btn-info glyphicon glyphicon-download-alt"  style={{ width: "100%", height: "150%" }}  key= {110}  >  </button>}>
                 <ExcelSheet data={this.state.csvsena}  name="Employees" >
                        <ExcelColumn label="ID"
                        value={(data) => data.id }/>
@@ -902,7 +993,9 @@ this.reclamos();
             </ExcelFile>
             </div>
             <div className="p-2">
-            <ExcelFile filename="TESTIGOS CAMARA" element={<button className="btn btn-info glyphicon glyphicon-download-alt botonexcel2" style={{ width: "90%", height: "150%" }}  key= {110}  >  </button>}>
+            
+            <label className="labelcamara" style={{ width: "100%" }}>CAMARA</label>
+            <ExcelFile filename="TESTIGOS CAMARA" element={<button className="btn btn-info glyphicon glyphicon-download-alt botonexcel2" style={{ width: "80%", height: "150%" }}  key= {110}  >  </button>}>
                 <ExcelSheet data={this.state.csvcamara}  name="Employees" >
                        <ExcelColumn label="ID"
                        value={(data) => data.id }/>
